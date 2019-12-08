@@ -56,7 +56,7 @@ end
   # Return a value #
 def reduce_to_total(source_array, starting_point)
   return_value = 0
-  if starting_point != NIL 
+  if starting_point != nil
     return_value = starting_point
   end
   
