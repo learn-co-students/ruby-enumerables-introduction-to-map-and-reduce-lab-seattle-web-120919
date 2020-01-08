@@ -1,66 +1,51 @@
-def map_to_negativize(array)
-  final_array = []
-  counter = 0
-  while counter < array.length do
-    final_array.push(array[counter] * -1)
-    counter += 1
-  end
-  final_array
+def map_to_negativize(arr)
+  arr.map {|num| num *-1}
 end
 
-def map_to_no_change(array)
-  final_array = []
-  counter = 0
-  while counter < array.length do
-    final_array.push(array[counter])
-    counter += 1
-  end
-  final_array
+def map_to_no_change(arr)
+  arr.map {|num| num}
 end
 
-def map_to_double(array)
-  final_array = []
-  counter = 0
-  while counter < array.length do
-    final_array.push(array[counter] * 2)
-    counter += 1
-  end
-  final_array
+def map_to_double(arr)
+  arr.map {|num| num * 2}
 end
 
-def map_to_square(array)
-  final_array = []
-  counter = 0
-  while counter < array.length do
-    final_array.push(array[counter] ** 2)
-    counter += 1
-  end
-  final_array
+def map_to_square(arr)
+  arr.map {|num| num ** 2}
 end
 
-def reduce_to_total(array, starting_point=0)
-  total = starting_point
-  counter = 0
-  while counter < array.length do
-    total += array[counter]
-    counter += 1
-  end
-  total
+def reduce_to_total(source_array, starting_point = 0)
+  source_array.reduce(starting_point) {|sum, num| sum + num}
 end
 
-def reduce_to_all_true(array)
-  counter = 0
-  while counter < array.length do
-    return false if array[counter] == false
-    counter += 1
+def reduce_to_all_true(source_array)
+  #[1, 2, true, "razmatazz"]
+  # source_array.reduce(0) do |element| 
+  #   if !!element == true
+  #   end
+  # end]
+  count = 0
+  while count < source_array.length do
+    if !!source_array[count] == true
+      t = source_array[count]
+    else
+      return false
+    end
+    count += 1
   end
-  return true
+  return t
 end
 
-def reduce_to_any_true(array)
-  counter = 0
-  while counter < array.length do
-    return true if array[counter] == true
+def reduce_to_any_true(source_array)
+  count = 0
+  while count < source_array.length do
+    if !!source_array[count] == true
+      return true
+    end
+    count += 1
   end
   return false
+  #   source_array[count] == true ? true : false
+  # end
+  # count += 1
 end
